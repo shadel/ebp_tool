@@ -10,10 +10,11 @@ import { BuildCombiners } from "./Combiner";
 import { BuildFeeders } from "./Feeder";
 import { BuildExternalConnectionPoints } from "./ExternalConnectionPoint";
 import GlobalScope from "./GlobalScope";
+import CustomGraph from "./CustomGraph";
 
 export const Draw = function (siteDetail, container) {
     // init grap
-    GlobalScope.ebpGraph = new joint.dia.Graph;
+    GlobalScope.ebpGraph = new CustomGraph();
     GlobalScope.ebpGraph.clear();
 
     let paper = new joint.dia.Paper({
