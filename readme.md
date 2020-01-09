@@ -1,6 +1,6 @@
 # 1. Install EBP tool
 ```
-npm install --save https://github.com/tinhtran91/ebp_tool#master
+npm install --save https://github.com/shadel/ebp_tool#master
 ```
 
 # 2. How to use EBP on solution
