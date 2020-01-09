@@ -19,7 +19,7 @@ export const Draw = function (siteDetail, container) {
 
     let paper = new joint.dia.Paper({
         el: container, // container of diagram
-        model: GlobalScope.ebpGraph,
+        model: GlobalScope.ebpGraph.jointGraph,
         gridSize: 1,
         interactive: function (cellView, method) {
             return cellView instanceof joint.dia.LinkView; // Only allow interaction with joint.dia.LinkView instances.
