@@ -19,12 +19,18 @@ export const Draw = function (siteDetail, container) {
 
     let paper = new joint.dia.Paper({
         el: container, // container of diagram
+        async: true,
         model: GlobalScope.ebpGraph.jointGraph,
         gridSize: 1,
         interactive: function (cellView, method) {
             return cellView instanceof joint.dia.LinkView; // Only allow interaction with joint.dia.LinkView instances.
         }
     });
+
+    paper.on('render:done', (...args) => {
+        console.log(args);
+        paper.fitToContent();
+    })
 
     paper.on('cell:mouseover',
         function (cellView, evt, x, y) {
