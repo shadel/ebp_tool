@@ -12,7 +12,7 @@ import { BuildExternalConnectionPoints } from "./ExternalConnectionPoint";
 import GlobalScope from "./GlobalScope";
 import CustomGraph from "./CustomGraph";
 
-export const Draw = function (siteDetail, container) {
+export const Draw = function (siteDetail, container, renderCallback) {
     // init grap
     GlobalScope.ebpGraph = new CustomGraph();
     GlobalScope.ebpGraph.clear();
@@ -29,7 +29,11 @@ export const Draw = function (siteDetail, container) {
 
     paper.on('render:done', (...args) => {
         console.log(args);
-        paper.fitToContent();
+        if (renderCallback) {
+            renderCallback(paper, ...args);
+        } else {
+            paper.fitToContent();
+        }
     })
 
     paper.on('cell:mouseover',
